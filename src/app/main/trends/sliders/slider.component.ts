@@ -43,7 +43,7 @@ export class SliderComponent implements OnInit {
 
 	public config: SwiperConfigInterface = {};
 
-	@ViewChild(SwiperComponent, { static: false })
+	@ViewChild(SwiperComponent)
 	componentRef: SwiperComponent;
 
 	constructor() {}
