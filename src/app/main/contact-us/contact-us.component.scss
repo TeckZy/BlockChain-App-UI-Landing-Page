@@ -1,0 +1,28 @@
+.contact-us {
+	color: white;
+	padding: 30px;
+	display: flex;
+	align-items: center;
+
+	.desc {
+		font-size: 16pt;
+		text-align: center;
+	}
+
+	.contact-form {
+		background: white;
+		padding: 20px;
+		text-align: center;
+		color: black;
+		border-radius: 5px;
+		margin-top: 30px;
+		.title {
+			font-size: 14pt;
+		}
+
+		.sub-title {
+			font-size: 10pt;
+			margin-bottom: 20px;
+		}
+	}
+}

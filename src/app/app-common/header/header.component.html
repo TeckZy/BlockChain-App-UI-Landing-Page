@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="#">Navbar</a>
+	<button
+		class="navbar-toggler"
+		type="button"
+		data-toggle="collapse"
+		data-target="#navbarNav"
+		aria-controls="navbarNav"
+		aria-expanded="false"
+		aria-label="Toggle navigation"
+		(click)="toggleSidebar()"
+	>
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+		<ul class="navbar-nav">
+			<li
+				class="nav-item"
+				*ngFor="let menu of navMenu"
+				[ngClass]="menu.submenus ? 'dropdown' : ''"
+			>
+				<a *ngIf="!menu.submenus" class="nav-link" href="#">
+					{{ menu.name }}
+				</a>
+				<a
+					*ngIf="menu.submenus"
+					class="nav-link dropdown-toggle"
+					href="#"
+					id="dropdown01"
+					data-toggle="dropdown"
+					aria-haspopup="true"
+					aria-expanded="false"
+					>{{ menu.name }}</a
+				>
+				<div class="dropdown-menu" aria-labelledby="dropdown01">
+					<a
+						class="dropdown-item"
+						href="#"
+						*ngFor="let submenu of menu.submenus"
+						>{{ submenu.name }}</a
+					>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<ng-sidebar-container>
+		<ng-sidebar [(opened)]="opened" [position]="'right'" [mode]="'over'">
+			<div class="header-sm" [ngClass]="opened ? 'bg-white' : ''">
+				<ul class="navbar-nav">
+					<li
+						class="nav-item"
+						*ngFor="let menu of navMenu"
+						[ngClass]="menu.submenus ? 'dropdown' : ''"
+					>
+						<a class="nav-link" href="#">{{ menu.name }}</a>
+					</li>
+				</ul>
+			</div>
+		</ng-sidebar>
+		<div ng-sidebar-content></div>
+	</ng-sidebar-container>
+</nav>

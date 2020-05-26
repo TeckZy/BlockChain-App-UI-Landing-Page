@@ -1,0 +1,176 @@
+<div class="contact-us row mx-0">
+	<div class="col-12 col-md-6 desc">
+		New to the Blockchain industry? <br />
+		Or got any queries? <br />
+		We are just one click away!
+	</div>
+	<div class="col-12 col-md-6">
+		<div class="contact-form">
+			<div class="title">
+				Contact Us
+			</div>
+			<div class="sub-title text-secondary">
+				how can we help you?
+			</div>
+			<form
+				[formGroup]="queryForm"
+				(ngSubmit)="onSubmit()"
+				class="text-left"
+			>
+				<div class="form-group">
+					<input
+						type="text"
+						formControlName="name"
+						class="form-control"
+						placeholder="Your Name"
+						[ngClass]="{
+							'is-invalid': submitted && f.name.errors
+						}"
+					/>
+					<div
+						*ngIf="submitted && f.name.errors"
+						class="invalid-feedback"
+					>
+						<div *ngIf="f.name.errors.required">
+							Name is required
+						</div>
+						<div *ngIf="f.name.errors.minlength">
+							Minimum 3 characters required
+						</div>
+						<div *ngIf="f.name.errors.maxlength">
+							Maximum 33 characters required
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<input
+						type="text"
+						formControlName="email"
+						class="form-control"
+						placeholder="Your Email"
+						[ngClass]="{
+							'is-invalid': submitted && f.email.errors
+						}"
+					/>
+					<div
+						*ngIf="submitted && f.email.errors"
+						class="invalid-feedback"
+					>
+						<div *ngIf="f.email.errors.required">
+							Email is required
+						</div>
+						<div *ngIf="f.email.errors.email">
+							Email must be a valid email address
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<input
+						type="text"
+						formControlName="company"
+						class="form-control"
+						placeholder="Company"
+						[ngClass]="{
+							'is-invalid': submitted && f.company.errors
+						}"
+					/>
+					<div
+						*ngIf="submitted && f.company.errors"
+						class="invalid-feedback"
+					>
+						<div *ngIf="f.company.errors.required">
+							Company name is required
+						</div>
+						<div *ngIf="f.company.errors.pattern">
+							Company name must not contain special characters
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<input
+						type="text"
+						formControlName="subject"
+						class="form-control"
+						placeholder="Subject"
+						[ngClass]="{
+							'is-invalid': submitted && f.subject.errors
+						}"
+					/>
+					<div
+						*ngIf="submitted && f.subject.errors"
+						class="invalid-feedback"
+					>
+						<div *ngIf="f.subject.errors.required">
+							Subject is required
+						</div>
+						<div *ngIf="f.subject.errors.maxlength">
+							Subject Should contains atmost 15 characters
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<textarea
+						formControlName="message"
+						class="form-control"
+						placeholder="your Message"
+						[ngClass]="{
+							'is-invalid': submitted && f.message.errors
+						}"
+					></textarea>
+					<div
+						*ngIf="submitted && f.message.errors"
+						class="invalid-feedback"
+					>
+						<div *ngIf="f.message.errors.required">
+							Message is required
+						</div>
+						<div *ngIf="f.message.errors.minlength">
+							Message Should contains atleast 30 characters
+						</div>
+						<div *ngIf="f.message.errors.minlength">
+							Message Should contains atmost 150 characters
+						</div>
+					</div>
+				</div>
+				<div class="form-group text-center">
+					<button class="btn btn-primary">
+						Submit
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Blockchain APP:</h4>
+				<button
+					type="button"
+					class="close"
+					data-dismiss="modal"
+					(click)="hide()"
+				>
+					&times;
+				</button>
+			</div>
+
+			<div class="modal-body">
+				Your query has been submit successfully!
+
+				<div class="modal-footer">
+					<button
+						type="button"
+						class="btn btn-danger"
+						data-dismiss="modal"
+						(click)="hide()"
+					>
+						Close
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,32 @@
+.our-services {
+	.title {
+		font-size: 28pt;
+		word-spacing: 12px;
+		color: #43bef8;
+	}
+
+	.service {
+		text-align: center;
+		cursor: pointer;
+		transition: transform 0.2s;
+
+		.name {
+			font-size: 18pt;
+			text-transform: uppercase;
+			font-weight: 100;
+			margin-top: 14px;
+		}
+	}
+	.service:hover {
+		transform: scale(1.5);
+	}
+
+	.service-link {
+		cursor: pointer;
+		span {
+			padding: 11px 30px;
+			border: 1px solid #43bef8;
+			border-radius: 5px;
+		}
+	}
+}
