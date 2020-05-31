@@ -1,53 +1,51 @@
 <div class="our-services row mx-0">
-	<div class="col-12 text-center">
-		<div class="title">OUR SERVICES</div>
-	</div>
-	<div class="col-12 col-md-4 p-5" *ngFor="let service of services">
-		<div class="service">
-			<img
-				src="../../../assets/images/services/{{ service.imagePath }}"
-			/>
-			<div class="name">
-				<span>{{ service.name }}</span>
-			</div>
-		</div>
-	</div>
-	<div class="col-12 text-center service-link" (click)="showServices()">
-		<span>View All Services</span>
-	</div>
+  <div class="col-12 text-center">
+    <div class="title">OUR SERVICES</div>
+  </div>
+  <div class="col-12 col-md-4 p-5" *ngFor="let service of services">
+    <div class="service">
+      <img src="assets/images/services/{{ service.imagePath }}" />
+      <div class="name">
+        <span>{{ service.name }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 text-center service-link" (click)="showServices()">
+    <span>View All Services</span>
+  </div>
 </div>
 
 <div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title">Our Services:</h4>
-				<button
-					type="button"
-					class="close"
-					data-dismiss="modal"
-					(click)="hide()"
-				>
-					&times;
-				</button>
-			</div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Our Services:</h4>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          (click)="hide()"
+        >
+          &times;
+        </button>
+      </div>
 
-			<div class="modal-body">
-				<ul class="col-12 p-3" *ngFor="let service of services">
-					<li>{{ service.name }}</li>
-				</ul>
+      <div class="modal-body">
+        <ul class="col-12 p-3" *ngFor="let service of services">
+          <li>{{ service.name }}</li>
+        </ul>
 
-				<div class="modal-footer">
-					<button
-						type="button"
-						class="btn btn-danger"
-						data-dismiss="modal"
-						(click)="hide()"
-					>
-						Close
-					</button>
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-danger"
+            data-dismiss="modal"
+            (click)="hide()"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
